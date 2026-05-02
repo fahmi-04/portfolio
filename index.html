@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en" data-theme="classic">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="portfolio" />
+  <!-- Title -->
+  <title>Fathima-Fahmi-C-I</title>
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- daisyUI Components -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.6/dist/full.css" rel="stylesheet" />
+  <!-- Manrope font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { manrope: ["Manrope", "sans-serif"] },
+          colors: {
+            "brand-1": "#0f172a",
+            "brand-2": "#0ea5a4",
+            "accent-1": "#ABEF5F",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="antialiased text-slate-800">
+  <!-- Header -->
+  <header class="site-header sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <button id="themeToggleSmall" class="hidden md:inline-flex items-center gap-2 btn btn-ghost btn-sm"
+            aria-label="Toggle theme">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 3v1m0 16v1M4.2 4.2l.7.7M19.1 19.1l.7.7M3 12h1m16 0h1M4.2 19.8l.7-.7M19.1 4.9l.7-.7"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Themes
+          </button>
+
+          <a class="flex items-center gap-3" href="#">
+            <div class="p-2 rounded-full accent-pill shadow-inner">
+              <img src="assets/bitmap.png" alt="logo" class="w-8 h-8 object-contain">
+            </div>
+            <div class="leading-tight">
+              <div class="font-semibold text-lg">Fathima Fahmi C I</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm muted">
+          <a href="#services" class="hover:underline">Services</a>
+          <a href="#portfolio" class="hover:underline">Projects</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-3">
+            <button class="btn btn-ghost btn-square" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <circle cx="11" cy="11" r="6" stroke-width="1.5" />
+                <path d="m21 21-4.35-4.35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <a class="btn btn-sm rounded-full px-4 accent-btn" href="#contact">contacts</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobileMenuButton" class="p-2 rounded-md focus:ring" aria-label="Open menu"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer hidden" aria-hidden="true">
+      <div class="drawer-backdrop" id="drawerBackdrop" tabindex="-1"></div>
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-full accent-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path d="m4.5 19.5 15-15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="font-semibold">Riterio</div>
+          </div>
+          <button id="mobileClose" class="p-2 rounded-md">✕</button>
+        </div>
+
+        <nav class="space-y-3">
+          <a class="block py-2 px-3 rounded hover:bg-slate-50" href="#services">Services</a>
+          <a class="block py-2 px-3 rounded hover:bg-slate-50" href="#portfolio">Portfolio</a>
+          <a class="block py-2 px-3 rounded hover:bg-slate-50" href="#articles">Articles</a>
+          <a class="block py-2 px-3 rounded hover:bg-slate-50" href="#contact">Contact</a>
+          <div class="pt-2">
+            <a class="btn w-full" href="#contact">Book Consult</a>
+          </div>
+        </nav>
+
+        <div class="mt-6">
+          <div class="font-semibold mb-2">Theme</div>
+          <div class="flex gap-2">
+            <button class="theme-swatch" data-theme="classic" title="Classic" aria-label="classic theme"></button>
+            <button class="theme-swatch" data-theme="sunset" title="Sunset" aria-label="sunset theme"></button>
+            <button class="theme-swatch" data-theme="ocean" title="Ocean" aria-label="ocean theme"></button>
+            <button class="theme-swatch" data-theme="forest" title="Forest" aria-label="forest theme"></button>
+            <button class="theme-swatch" data-theme="dark" title="Dark" aria-label="dark theme"></button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+  <!-- header end -->
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 py-10 lg:py-20 grid lg:grid-cols-2 gap-8 items-start">
+
+        <!-- LEFT SIDE -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-sm shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor">
+              <path d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            lets dive
+          </div>
+
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            Fathima Fahmi C I
+          </h1>
+
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
+            Creative Designer
+          </h2>
+
+          <p class="muted max-w-xl text-xl text-justify">
+            I am a creative designer specializing in designing visually engaging
+            content for events, brands, and personal occasions. I have hands-on
+            experience in creating posters, banners, certificates, ID cards, and
+            social media creatives.
+          </p>
+
+          <div class="flex gap-3 flex-wrap">
+            <a href="#portfolio" class="btn btn-lg rounded-full px-6 accent-btn">
+              Explore my works
+            </a>
+
+            <a href="#contact" class="btn btn-ghost rounded-full">
+              Contact
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4">
+            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">Poster Design</span>
+            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">Invitation Cards</span>
+            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">Social Media</span>
+            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">Certificates</span>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE (IMAGE) -->
+        <div class="relative">
+          <div class="w-80 h-80 rounded-full overflow-hidden">
+            <img src="assets/PHOTO.jpg" alt="Profile" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- background vector -->
+      <div class="hidden lg:block absolute -left-20 top-20 opacity-20 pointer-events-none">
+        <img src="assets/Vector.png" alt="vector" class="w-72" />
+        
+      </div>
+      <div class="absolute inset-0 opacity-10">
+    <img src="assets/bitmap.png" class="w-full h-full object-contain" />
+  </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="max-w-7xl mx-auto px-4 py-12">
+      <div class="text-center mb-8">
+        <div
+          class="inline-flex items-center gap-2 bg-slate-100 px-3 py-1 rounded-full mx-auto text-3xl font-bold text-center">
+          what i do
+        </div>
+        <p class="text-gray-500 text-center mt-2 max-w-2xl mx-auto text-xl">
+          I focus on delivering designs that are not only attractive but also meaningful and aligned with the client’s
+          purpose. Whether it is promoting an event, building a brand presence, or designing elegant invitations, I aim
+          to create designs that leave a strong impression.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
+        <article
+          class="p-6 rounded-2xl bg-purple-50 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 w-full max-w-sm">
+          <h3 class="mt-4 font-semibold text-xl">Event designs</h3>
+          <p class="mt-2 text-lg text-gray-700">
+            design posters, banners and certificates for events and fest.
+          </p>
+        </article>
+
+        <article
+          class="p-6 rounded-2xl bg-rose-50 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 w-full max-w-sm">
+          <h3 class="mt-4 font-semibold text-xl">Social media creatives</h3>
+          <p class="mt-2 text-lg text-gray-700">
+            Design professional social media posts and promotional banners for your brand.
+          </p>
+        </article>
+
+        <article
+          class="p-6 rounded-2xl bg-teal-50 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 w-full max-w-sm">
+          <h3 class="mt-4 font-semibold text-xl">
+            Invitation & Card Design
+          </h3>
+
+          <p class="mt-2 text-lg text-gray-700">
+            Elegant wedding invitations, event cards, and custom creative designs that leave a lasting impression.
+          </p>
+        </article>
+
+
+      </div>
+    </section>
+
+    <section id="about" class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+        <!-- LEFT: TEXT -->
+        <div>
+          <div class="text-center mb-6">
+            <span class="px-4 py-1 text-sm bg-slate-100 rounded-full text-gray-600 text-2xl font-bold">
+              About Me
+            </span>
+            <h2 class="text-3xl font-bold mt-2">
+              Get to know me
+            </h2>
+          </div>
+
+          <p class="mt-4 text-gray-500 leading-relaxed text-lg text-justify">
+            I am a Computer Science Engineering student with a strong passion for
+            creative design and visual storytelling. Alongside my technical background,
+            I enjoy creating impactful designs for events, brands, and personal projects.
+          </p>
+
+          <p class="mt-3 text-gray-500 leading-relaxed text-lg text-justify">
+            I have worked on multiple college events, designing posters, banners,
+            certificates, ID cards, and social media creatives. I focus on creating
+            designs that are not only visually appealing but also meaningful and engaging.
+          </p>
+
+          <!-- SKILLS -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Figma</span>
+            <span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Canva</span>
+            <span class="px-3 py-1 text-sm bg-gray-100 rounded-full">UI/UX Design</span>
+            <span class="px-3 py-1 text-sm bg-gray-100 rounded-full">Poster Design</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: EDUCATION CARD -->
+        <div class="rounded-2xl p-6 shadow-md bg-white">
+          <h3 class="text-xl font-semibold ">Education</h3>
+
+          <div class="mt-4 space-y-3 text-sm text-gray-600">
+            <div>
+              <div class="font-semibold text-lg ">B.E in Computer Science Engineering</div>
+              <div class="text-sm">P A College Of Engineering, Mangalore </div>
+            </div>
+
+            <div>
+              <div class="font-semibold text-lg">Relevant Interests</div>
+              <div class="text-sm">
+                UI/UX Design, Web Development, Creative Design
+              </div>
+            </div>
+
+            <div>
+              <div class="font-semibold text-lg">Experience</div>
+              <div class="text-sm">
+                Designed creatives for college hackathons and technical events
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="max-w-7xl mx-auto px-4 py-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-bold">My Works</h2>
+          <p class="muted">
+            Latest College Event Posters
+          </p>
+        </div>
+        <div class="hidden sm:flex gap-3">
+          <a href="./pages/works.html" class="btn btn-ghost">
+            View all projects
+          </a>
+        </div>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!--1-->
+        <figure
+          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover:-translate-y-2 w-full max-w-xs">
+
+          <img src="assets/Event Poster1.jpeg" alt="Hackathon Poster"
+            class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300" />
+
+          <figcaption
+            class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent text-white">
+            <div class="font-semibold text-lg">Hackathon Poster</div>
+            <div class="text-xs opacity-80">innov8trix X hackSummit 2025</div>
+          </figcaption>
+
+        </figure>
+
+        <!--2-->
+        <figure
+          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover:-translate-y-2 w-full max-w-xs">
+
+          <img src="assets/idevent.png" alt="Hackathon Poster"
+            class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300" />
+
+          <figcaption
+            class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent text-white">
+            <div class="font-semibold text-lg">ID Card</div>
+            <div class="text-xs opacity-80">innov8trix X hackSummit 2025</div>
+          </figcaption>
+
+        </figure>
+
+        <!--3-->
+        <figure
+          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover:-translate-y-2 w-full max-w-xs">
+
+          <img src="assets/workshop.png" alt="Hackathon Poster"
+            class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300" />
+
+          <figcaption
+            class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent text-white">
+            <div class="font-semibold text-lg">Operating System Workshop</div>
+            <div class="text-xs opacity-80">Workshop Event</div>
+          </figcaption>
+
+        </figure>
+
+        <!--4-->
+        <figure
+          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 hover:-translate-y-2 w-full max-w-xs">
+
+          <img src="assets/dumb.png" alt="Hackathon Poster"
+            class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-300" />
+
+          <figcaption
+            class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent text-white">
+            <div class="font-semibold text-lg">Dumb Charades Poster</div>
+            <div class="text-xs opacity-80">College Event</div>
+          </figcaption>
+
+        </figure>
+      </div> <!-- close grid -->
+    </section> <!-- close portfolio -->
+
+
+    <!-- Contact -->
+    <section id="contact" class="bg-transparent py-12">
+      <div class="max-w-7xl mx-auto px-4 grid gap-8 lg:grid-cols-2 items-start">
+
+        <!-- LEFT: FORM -->
+        <div class="rounded-2xl p-8 app-card w-full min-h-[500px]">
+          <h2 class="text-2xl font-bold">Let's discuss your next project</h2>
+          <p class="muted mt-2">
+            Tell me your idea and I’ll help you turn it into a creative design.
+          </p>
+
+          <form action="https://formspree.io/f/xwvypoqo" method="POST" class="mt-6 space-y-5">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input name="first" required class="input input-bordered w-full" placeholder="First name*" />
+              <input name="last" required class="input input-bordered w-full" placeholder="Last name*" />
+            </div>
+
+            <input name="email" type="email" required class="input input-bordered w-full" placeholder="Email*" />
+
+            <textarea name="message" rows="4" class="textarea textarea-bordered w-full"
+              placeholder="Tell me about your project"></textarea>
+
+            <button type="submit" class="btn rounded-full px-6 accent-btn">
+              Send request
+            </button>
+
+          </form>
+        </div>
+
+        <!-- RIGHT: INFO -->
+        <div class="rounded-2xl p-8 app-card w-full min-h-[500px]"
+          style="background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02));">
+          <h3 class="text-xl font-semibold">Quick Info</h3>
+
+          <ul class="mt-4 space-y-3 text-lg muted">
+            <li>Creative designer for events & brands</li>
+            <li>Specialized in posters, invitations & social media</li>
+            <li>Available for freelance projects</li>
+          </ul>
+
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <div class="p-4 rounded-lg bg-gray-100">
+              <div class="text-xl">Location</div>
+              <div class="font-semibold text-sm">Kerala, India</div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-gray-100">
+              <div class="text-xl">Email</div>
+              <div class="font-semibold text-sm break-all">
+                fathimafahmici@gmail.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer bg-transparent mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="p-2 rounded-full accent-pill">
+            <img src="assets/bitmap.png" alt="logo" class="w-8 h-8 object-contain">
+          </div>
+          <div>
+            <div class="font-semibold text-lg">Fathima Fahmi C I</div>
+            <div class="text-xs muted">
+              Passionate Designer and Problem Solving engineer
+            </div>
+          </div>
+        </div>
+        <p class="muted text-sm">
+          Creating Ideas to meaningful and living 
+        </p>
+      </div>
+
+      <div class="text-sm">
+        <div class="font-semibold mb-2">Navigation</div>
+        <ul class="space-y-1 muted">
+          <li><a href="#services" class="hover:underline">Services</a></li>
+          <li><a href="#portfolio" class="hover:underline">Projects</a></li>
+          <li><a href="#about" class="hover:underline">About</a></li>
+          <li><a href="#contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold mb-2">Stay in touch</div>
+        <form class="flex gap-2" onsubmit="
+              event.preventDefault();
+              alert('Thanks - demo only');
+            ">
+          <input placeholder="Email" class="input input-sm input-bordered bg-white/5" />
+          <button class="btn btn-sm">Subscribe</button>
+        </form>
+
+        <div class="flex gap-2 mt-4">
+          <a class="btn btn-ghost btn-sm">Twitter</a>
+          <a class="btn btn-ghost btn-sm">Dribbble</a>
+          <a class="btn btn-ghost btn-sm">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-xs muted py-4">
+      @ <span id="year"></span> fathimafahmici
+    </div>
+  </footer>
+
+  <!-- footer end -->
+
+  <!-- Theme Picker -->
+
+  <!-- <div id="themePicker" class="fixed right-4 bottom-2 z-50">
+      <div class="bg-white/90 p-2 rounded-2xl shadow-sm backdrop-blur-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-4 h-4 rounded-full accent-pill"></div>
+          <div class="text-sm font-semibold">Theme</div>
+        </div>
+        <div class="flex gap-2 flex-wrap">
+          <button
+            class="theme-swatch"
+            data-theme="classic"
+            title="Classic (light)"
+          ></button>
+          <button class="theme-swatch" data-theme="dark" title="Dark"></button>
+          <button
+            class="theme-swatch"
+            data-theme="sunset"
+            title="Sunset"
+          ></button>
+          <button
+            class="theme-swatch"
+            data-theme="ocean"
+            title="Ocean"
+          ></button>
+          <button
+            class="theme-swatch"
+            data-theme="forest"
+            title="Forest"
+          ></button>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- some little javascript -->
+  <script>
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+    const mobileMenuButton = $("#mobileMenuButton");
+    const mobileDrawer = $("#mobileDrawer");
+    const mobileClose = $("#mobileClose");
+    const drawerBackdrop = $("#drawerBackdrop");
+    const themeBtns = $$(".theme-swatch");
+    const themeToggleSmall = $("#themeToggleSmall");
+
+    const themeMap = {
+      classic: { preview: "linear-gradient(180deg,#ffffff,#f1f5f9)" },
+      dark: { preview: "linear-gradient(180deg,#0b1220,#07122a)" },
+      sunset: { preview: "linear-gradient(135deg,#ff7a59,#ffc857)" },
+      ocean: { preview: "linear-gradient(135deg,#2dd4bf,#60a5fa)" },
+      forest: { preview: "linear-gradient(135deg,#a3e635,#166534)" },
+    };
+
+    themeBtns.forEach((btn) => {
+      const t = btn.dataset.theme;
+      btn.style.background = themeMap[t]?.preview || "#eee";
+      btn.addEventListener("click", () => setTheme(t));
+    });
+
+    const THEME_KEY = "riterio_theme_v2";
+    function setTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem(THEME_KEY, theme);
+      document.body.classList.add("theme-switching");
+      setTimeout(
+        () => document.body.classList.remove("theme-switching"),
+        300,
+      );
+    }
+
+    (function () {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved) {
+        setTheme(saved);
+      } else {
+        const prefers =
+          window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "classic";
+        setTheme(prefers);
+      }
+    })();
+
+    themeToggleSmall?.addEventListener("click", () => {
+      const order = ["classic", "sunset", "ocean", "forest", "dark"];
+      const current =
+        document.documentElement.getAttribute("data-theme") || "classic";
+      const idx = (order.indexOf(current) + 1) % order.length;
+      setTheme(order[idx]);
+    });
+
+    function openDrawer() {
+      mobileDrawer.classList.remove("hidden");
+      mobileDrawer.querySelector(".drawer-panel").classList.add("open");
+      mobileMenuButton.setAttribute("aria-expanded", "true");
+      mobileDrawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeDrawer() {
+      const panel = mobileDrawer.querySelector(".drawer-panel");
+      panel.classList.remove("open");
+      setTimeout(() => {
+        mobileDrawer.classList.add("hidden");
+      }, 320);
+      mobileMenuButton.setAttribute("aria-expanded", "false");
+      mobileDrawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    mobileMenuButton?.addEventListener("click", openDrawer);
+    mobileClose?.addEventListener("click", closeDrawer);
+    drawerBackdrop?.addEventListener("click", closeDrawer);
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) closeDrawer();
+    });
+
+    document
+      .getElementById("contactForm")
+      ?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const btn = document.getElementById("contactSubmit");
+        btn.classList.add("loading");
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.classList.remove("loading");
+          btn.disabled = false;
+          alert(
+            "Thanks! This is a demo form - integrate your backend endpoint.",
+          );
+          e.target.reset();
+        }, 1000);
+      });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const reveal = (els, delayBase = 80) => {
+      els.forEach((el, i) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(12px)";
+        setTimeout(() => {
+          el.style.transition = "opacity 500ms ease, transform 500ms ease";
+          el.style.opacity = 1;
+          el.style.transform = "none";
+        }, i * delayBase);
+      });
+    };
+    window.addEventListener("load", () => {
+      reveal(
+        Array.from(document.querySelectorAll("section, header, footer")),
+        60,
+      );
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (!mobileDrawer.classList.contains("hidden")) closeDrawer();
+      }
+    });
+  </script>
+  <!-- javascirpt end -->
+</body>
+
+</html>
